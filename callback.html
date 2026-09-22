@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Connecting…</title>
+<style>body{font:16px system-ui,sans-serif;color:#222;max-width:640px;margin:80px auto;padding:0 20px}</style></head>
+<body>
+<p id="msg">Finishing TikTok sign-in…</p>
+<script>
+  // TikTok redirects here (https). Hand the code to the local Memo Creator Tools server.
+  var q = location.search;
+  var target = 'http://localhost:3001/auth/tiktok/callback' + q;
+  if (/[?&](code|error)=/.test(q)) { location.replace(target); }
+  else { document.getElementById('msg').textContent = 'Nothing to do — open this page from the Connect TikTok button.'; }
+</script>
+<noscript><p>Enable JavaScript, or open <a href="http://localhost:3001/auth/tiktok/callback">the local callback</a> with the same query string.</p></noscript>
+</body></html>
